@@ -15,7 +15,7 @@ module.exports.test = function(io) {
 	router.post('/', function (req, res, next) {
 
 		const { search } = req.body;
-		client.get(`search/tweets.json?q=${search}&count=100`, (error, tweets, response) => {
+		client.get(`search/tweets.json?q=${search}&count=50`, (error, tweets, response) => {
 			if(error) {
 				return res.json({
 					error: 'Could not get tweets'
@@ -33,10 +33,7 @@ module.exports.test = function(io) {
 			});
 		
 			stream.on('error', function(error) {
-				return res.json({
-					error: 'Check your internet connection',
-					error
-				})
+				console.log(error, 'error')
 			});
 		});
 	});
