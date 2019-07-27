@@ -16,9 +16,11 @@ module.exports.test = function(io) {
 
 		const { search } = req.body;
 		client.get(`search/tweets.json?q=${search}&count=100`, (error, tweets, response) => {
-			if(error) return res.json({
-				error: 'Could not get tweets'
-			});
+			if(error) {
+				return res.json({
+					error: 'Could not get tweets'
+				});
+			}
 			res.json({
 				message: 'Tweets getting successfully',
 				tweets
