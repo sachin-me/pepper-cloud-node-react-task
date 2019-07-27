@@ -6,6 +6,7 @@
     "start": "NODE_ENV=development nodemon app.js",
 		"start:prod": "NODE_ENV=production nodemon app.js",
 		"prod": "NODE_ENV=production webpack --config webpack.prod.config.js",
+		"heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress",
     "clean": "rimraf dist/bundle/"
   },
   "dependencies": {
