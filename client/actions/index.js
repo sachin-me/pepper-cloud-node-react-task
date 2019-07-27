@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const rootUrl = 'http://localhost:3000/api/v1';
+const rootUrl = '/api/v1';
 
 const actions = {
 	searchTwitts: (data, cb) => dispatch => {
