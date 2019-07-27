@@ -14,10 +14,6 @@ class Search extends Component {
 		isLoading: false,
 		error: ''
 	}
-
-	// componentDidMount() {
-	// 	this.props.dispatch(actions.newTwitts(socket))
-	// }
 	
 	handleChange = ({ target: { name, value } }) => {
 		this.setState({
@@ -33,18 +29,20 @@ class Search extends Component {
 		const { search } = this.state;
 		if (!search) return;
 		this.props.dispatch(actions.searchTwitts(search, (success, error) => {
-			if (success) {
-				this.setState({
-					search: '',
-					isLoading: false
-				})
-				this.props.dispatch(actions.newTwitts(socket))
-			} else {
-				this.setState({
-					isLoading: true,
-					error: error
-				})
-			}
+			setTimeout(() => {
+				if (success) {
+					this.setState({
+						search: '',
+						isLoading: false
+					})
+					this.props.dispatch(actions.newTwitts(socket))
+				} else {
+					this.setState({
+						isLoading: true,
+						error: error
+					})
+				}
+			}, 10000)
 		}))
 		socket.emit('notification', search);
 	}

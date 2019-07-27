@@ -46,11 +46,6 @@ app.use('/dist/bundle', expressStaticGzip(path.join(__dirname, 'dist/bundle'), {
 mongoose.set('useFindAndModify', false);
 mongoose.set('useNewUrlParser', true);
 
-// connect to mongodb
-mongoose.connect('mongodb://localhost:27017/node_react_bp', function (err) {
-  console.log('mongodb connected ?', err ? false : true);
-});
-
 // webpack
 if (process.env.NODE_ENV === "development") {
   var webpack = require("webpack");

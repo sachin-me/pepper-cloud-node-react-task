@@ -16,7 +16,9 @@ const actions = {
 				cb(false, 'No matches found')
 			}
 		})
-		.catch(error => console.log(`Error: ${error}`))
+		.catch(error => {
+			cb(false, error)
+		})
 	},
 	newTwitts: (socket) => dispatch => {
 		socket.on('notification', (notification) => {

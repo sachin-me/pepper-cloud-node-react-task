@@ -31,7 +31,10 @@ module.exports.test = function(io) {
 			});
 		
 			stream.on('error', function(error) {
-				io.emit('notification', error)
+				return res.json({
+					error: 'Check your internet connection',
+					error
+				})
 			});
 		});
 	});
