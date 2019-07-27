@@ -27,20 +27,20 @@ class DisplayTwitts extends Component {
 		const { limit } = this.state;
 		return (
 			<>
-				<div>
+				<div className="display-tweet-wrapper">
 					{
 						twitts.length !== 0 ? (
 							<>
 								{
-									twitts.slice(0, limit).map((twitt) => {
+									twitts.slice(0, limit).map((twitt, index) => {
 										return (
-											<div key={twitt.id}>
+											<div key={index}>
 												<SingleTwitt twitt={twitt} />
 											</div>
 										)
 									})
 								}
-								<div onClick={this.handleClick}>Load more...</div> 
+								<div className="load-more" onClick={this.handleClick}>Load more...</div> 
 							</>
 						) : ''
 					}

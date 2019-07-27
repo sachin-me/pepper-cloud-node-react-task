@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import io from 'socket.io-client';
 import actions from '../actions';
 import DisplayTwitts from './DisplayTwitts';
+import Spinner from '../containers/Loader';
 
 const socket = io();
 
@@ -51,14 +52,16 @@ class Search extends Component {
 	render() {
 		const { isLoading } = this.state;
 		return (
-			<div>
+			<div className="search-wrapper">
 				<form action="" method="post" onSubmit={this.handleSubmit} >
 					<input type="search" name="search" id="" onChange={this.handleChange} />
 					<input type="submit" value="Search"/>
 				</form>
-				{
-					isLoading ? 'Loading...' : <DisplayTwitts />
-				}
+				<div>
+					{
+						isLoading ? <Spinner /> : <DisplayTwitts />
+					}
+				</div>
 			</div>
 		);
 	}

@@ -4,7 +4,7 @@ import NotificationIcon from './NotificationIcon';
 
 const Header = () => {
 	return (
-		<div>
+		<div className="header">
 			<NotificationIcon />
 			<Search />
 		</div>

@@ -9,8 +9,10 @@ class Routes extends Component {
 		return (
 			<div>
 				<Router>
-					<Home />
-					<Route exact path='/' component={Header} />
+					<div className="home-wrapper">
+						<Home />
+						<Route exact path='/' component={Header} />
+					</div>
 					<Route exact path='/notifications' component={Notifications} />
 				</Router>
 			</div>

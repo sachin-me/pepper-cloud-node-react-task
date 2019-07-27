@@ -2,23 +2,26 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SingleNotification from './SingleNotification';
 import actions from '../actions';
+import Spinner from '../containers/Loader';
 
 class Notifications extends Component {
 	
 	render() {
 		const { notifications } = this.props;
 		return (
-			<div>
+			<div className="display-tweet-wrapper">
 				{
 					notifications
 					? 
 					notifications.map((notification, index) => {
 						return (
-							<SingleNotification notification={notification} key={index} />
+							<div key={index}>
+								<SingleNotification notification={notification} />
+							</div>
 						)
 					})
 					:
-					'Loading...'
+					<Spinner />
 				}
 			</div>
 		);

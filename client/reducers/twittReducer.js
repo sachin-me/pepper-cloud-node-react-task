@@ -14,7 +14,6 @@ function twittReducer(state = initialState, action) {
 		}
 
 		case 'NEW_TWEETS_GET_SUCCESS': {
-			console.log(action.notification, 'in reducer');
 			return {
 				...state,
 				newTweets: [action.notification, ...state.newTweets]

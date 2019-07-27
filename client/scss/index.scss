@@ -1,9 +1,94 @@
 body {
-  margin: 10x;
+  margin: 0;
 }
+
+$flex: flex;
+$justifyContent: space-between;
+$bgColor: rgba(29,161,242,1.00);
+$primaryColor: #fff;
+$center: center;
+$primarySize: 1.1rem;
 
 h1 {
   text-align: center;
   color: gray;
   margin-top: 50px;
+}
+
+// Home wrapper
+.home-wrapper {
+	display: $flex;
+	justify-content: $justifyContent;
+	background: $bgColor;
+	height: 3rem;
+	align-items: $center;
+	padding: 0 1rem;
+	a {
+		color: $primaryColor;
+		font-size: $primarySize;
+	}
+}
+
+// Header
+.header {
+	display: $flex;
+	margin-right: 2*$primarySize;
+	a {
+		margin: 0 1rem;
+		color: $primaryColor;
+		font-size: $primarySize;
+		text-decoration: none;
+	}
+}
+
+// Search
+.search-wrapper {
+	form {
+		input {
+			height: 1.5*$primarySize;
+			outline: none;
+			border: 1px solid $primaryColor;
+		}
+	}
+}
+
+.display-tweet-wrapper {
+	position: absolute;
+  top: 25%;
+  left: 50%;
+  right: 50%;
+  bottom: 50%;
+  max-width: 500px;
+  width: 100%;
+	transform: translate(-50%, -50%);
+	.display-tweet-card {
+		padding: 10px;
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		margin: 10px 0;
+		.card-user-name {
+			display: inline-block;
+		}
+		.card-link {
+			color: $bgColor;
+			text-decoration: none;
+		}
+		div {
+			display: $flex;
+			align-items: center;
+			img {
+				margin-right: $primarySize;
+				border-radius: 50%;
+				border: none;
+			}
+		}
+	}
+	.load-more {
+		color: $bgColor;
+	}
+}
+
+// Loader
+.loader-wrapper {
+	position: absolute;
+	top: 40%;
 }
