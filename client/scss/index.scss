@@ -90,5 +90,10 @@ h1 {
 // Loader
 .loader-wrapper {
 	position: absolute;
-	top: 40%;
+	top: 50%;
+	text-align: center;
+	left: 50%;
+	right: 50%;
+	bottom: 50%;
+	transform: translate(-50%, -50%);
 }

@@ -7,6 +7,7 @@ var logger = require('morgan');
 var helmet = require('helmet');
 var expressStaticGzip = require("express-static-gzip");
 var mongoose = require('mongoose');
+require('dotenv').config()
 
 var indexRouter = require('./routes/index');
 var apiRouter = require('./routes/api').router

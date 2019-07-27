@@ -1,8 +1,6 @@
 var express = require('express');
 const Twitter = require('twitter');
-const io = require('../../app');
 var router = express.Router();
-require('dotenv').config()
 
 const client = new Twitter({
   consumer_key: process.env.consumer_key,
@@ -17,7 +15,7 @@ module.exports.test = function(io) {
 	router.post('/', function (req, res, next) {
 
 		const { search } = req.body;
-		client.get(`search/tweets.json?q=${search}&count=25`, (error, tweets, response) => {
+		client.get(`search/tweets.json?q=${search}&count=100`, (error, tweets, response) => {
 			if(error) return res.json({
 				error: 'Could not get tweets'
 			});
@@ -33,7 +31,7 @@ module.exports.test = function(io) {
 			});
 		
 			stream.on('error', function(error) {
-				throw error;
+				io.emit('notification', error)
 			});
 		});
 	});
